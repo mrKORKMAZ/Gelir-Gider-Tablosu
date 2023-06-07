@@ -16,10 +16,19 @@ ekleFormu.addEventListener("submit", (e) => {
   e.preventDefault() //? reload'u engeller
   gelirler = gelirler + Number(gelirInput.value) //? string eklemiyi engelledik
 
+  //? gelirlerin kalıcı olmasi icin localStorage a kopyaliyoruz
+  localStorage.setItem("gelirler", gelirler)
+
   //? input degerini sifrladik
   ekleFormu.reset()
 
   //? Degisiklikleri sonuc tablosuna yazan fonks.
+  hesaplaVeGuncelle()
+})
+
+//! Sayfa her yuklendikten sonra calisan event
+window.addEventListener("load", () => {
+  gelirler = Number(localStorage.getItem("gelirler"))
   hesaplaVeGuncelle()
 })
 
