@@ -5,7 +5,12 @@ const ekleFormu = document.getElementById("ekle-formu")
 
 
 //? Variables
+let gelirler= ""
 
 //?Events
-
+ekleFormu.addEventListener("submit", (e) => {
+    e.preventDefault() //? Reload'u engeller
+    gelirler += gelirInput.value
+    console.log(gelirler)
+})
 //? Functions
